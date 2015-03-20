@@ -5,7 +5,7 @@ description: "cornexpression怎么用？cornexpression什么规则？"
 modified: 2015-03-18
 tags: [quartz,cornexpression,unix]
 image:
-  feature: abstract-3.jpg
+  background:: abstract-3.jpg
 
 ---
 Quartz中我们可以用cornExpression来定义一个job的执行计划，与unix中的cron非常相似，不过Quartz中的cornExpression可以支持到秒，这比unix中支持的分钟级调度要精确的多。
