@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Corn Expression怎么玩？
+category: Spring
 description: "cornexpression怎么用？cornexpression什么规则？"
 modified: 2015-03-18
 tags: [quartz,cornexpression,unix]

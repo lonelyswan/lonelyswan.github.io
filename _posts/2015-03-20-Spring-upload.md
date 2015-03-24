@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 内存不够？SpringMVC流式上传文件
+category: Spring
 description: "Spring流式上传文件"
 modified: 2015-03-20
 tags: [Spring,file,upload]
