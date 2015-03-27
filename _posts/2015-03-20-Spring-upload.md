@@ -19,7 +19,7 @@ image:
 
 先上个代码
 
-{% highlight css %}
+{% highlight java %}
 @RequestMapping(value = "fileUpload", method = RequestMethod.POST) 
 @ResponseBody 
 public Object fileUpload(@RequestParam("fileUpload") CommonsMultipartFile file) {  
@@ -69,7 +69,7 @@ public String fileUp(HttpServletRequest request)  throws Exception{
 这段话直接说明了，这是需要存储在内存或者磁盘里面的。所以这两种上传方式不适合上传大文件。如果文件过大则容易损耗过多的内存，非常不划算。
 
 流式上传的优势就体现出来了，省内存，但是速度会比较慢。还是上一段代码
-{% highlight css %}
+{% highlight java %}
 @RequestMapping(value="/upload",  method= RequestMethod.POST)
 @ResponseBody
 public Object fileUpload(@RequestParam("file") CommonsMultipartFile file)

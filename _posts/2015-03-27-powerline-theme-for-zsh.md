@@ -22,7 +22,7 @@ image:
 首先你当然要安装zsh和iTerm了。这个就不多说了。
 
 * 下载主题安装
-{% highlight css %}
+{% highlight sh %}
 git clone git://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme ~/.ohmyzsh-powerline
 cd ~/.ohmyzsh-powerline
 ./install_in_omz.sh
@@ -31,7 +31,7 @@ cd ~/.ohmyzsh-powerline
 * 因为powerline主题用到了一些特殊的符号所以需要下载一个支持powerline的字体，如果你喜欢mac命令行自带的字体那么我推荐下载[Monaco for Powerline](https://github.com/supermarin/powerline-fonts/blob/bfcb152306902c09b62be6e4a5eec7763e46d62d/Monaco/Monaco%20for%20Powerline.otf)字体。双击下载下来的字体文件点击安装字体就可以了
 
 * 给zsh配置主题
-{% highlight css %}
+{% highlight sh %}
 vim ~/.zshrc 
 找到ZSH_THEME修改为powerline
 保存后
