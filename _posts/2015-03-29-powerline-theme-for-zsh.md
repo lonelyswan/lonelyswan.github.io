@@ -1,11 +1,12 @@
 ---
 layout: post
 title: iterm+zsh＋powerline＝OMG
+category: etc
 description: "在Yosemite里给iterm的zsh配置powerline theme"
 modified: 2015-03-29
 tags: [zsh,powerline]
 image:
-  feature: abstract-3.jpg
+  background: triangular.png
 ---
 
 看够了zsh的老主题robbyrussell，换个亮眼的powerline主题享受下。
@@ -37,5 +38,9 @@ vim ~/.zshrc
 source ~/.zshrc
 {% endhighlight %}
 
-* 打开iTerm，
+* 打开iTerm，把字体改为如下所示即可
+<figure>
+<img src="https://raw.githubusercontent.com/lonelyswan/lonelyswan.github.io/master/images/config.png" alt="">
+</figure>
 
+接下来好好享受powerline的酷炫吧。哈哈
