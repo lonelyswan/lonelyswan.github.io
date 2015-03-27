@@ -6,6 +6,7 @@ description: "创建大型对象的开销往往是很大的，尽量去避免因
 modified: 2015-03-25
 tags: [java,effective]
 image:
+  feature: abstract-12.jpg
 ---
 
 
