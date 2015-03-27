@@ -3,7 +3,7 @@ layout: post
 title: iterm+zsh＋powerline＝OMG
 category: etc
 description: "在Yosemite里给iterm的zsh配置powerline theme"
-modified: 2015-03-29
+modified: 2015-03-27
 tags: [zsh,powerline]
 image:
   background: triangular.png
