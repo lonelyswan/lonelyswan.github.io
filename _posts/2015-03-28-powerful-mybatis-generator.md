@@ -2,8 +2,8 @@
 layout: post
 title: 用mybatisGenerator解放你的生产力
 category: java
-description: "在写代码时繁杂的dao，domain，mapper写这种代码又无聊又容易出错，尤其是在mapper里出了错，还不容易发现，有了mybatisGenerator，原来生活可以如此美好。。。。"
-modified: 2015-03-18
+description: "在写代码时繁杂的dao，domain，mapper写这种代码又无聊又容易出错，尤其是在mapper里出了错不易发现，有了mybatisGenerator，原来生活可以如此美好..."
+modified: 2015-03-28
 tags: [java,xml,mybatis]
 image:
     background: witewall_3.png
@@ -40,9 +40,9 @@ image:
 	<!-- jdbc连接 -->  
     <jdbcConnection 
     	driverClass="${database.driverClassName}"  
-        connectionURL="${database.dbWmWrite.url}" 
-        userId="${database.dbWmWrite.username}"  
-        password="${database.dbWmWrite.password}" 
+        connectionURL="${database.url}" 
+        userId="${database.username}"  
+        password="${database.password}" 
     />  
       
     <!-- 类型转换 -->  
@@ -109,7 +109,7 @@ java -jar mybatis-generator-core-1.3.2.jar -configfile testproject/src/main/reso
 
 现在去检查下，是不是你指定的文件夹里面有所有的需要的java文件？
 
-***爽翻啦***
+***巴适***
 
 ps:真是美好的一天啊
 
