@@ -22,6 +22,11 @@ image:
 
 >创建一个m位BitSet，先将所有位初始化为0，然后选择k个不同的哈希函数。第i个哈希函数对字符串str哈希的结果记为h（i，item），且h（i，item）的范围是0到m-1，然后将对应位的BitSet置为1。
 
+<figure>
+	<a href="https://raw.githubusercontent.com/lonelyswan/lonelyswan.github.io/master/images/649px-Bloom_filter.svg.png"><img src="https://raw.githubusercontent.com/lonelyswan/lonelyswan.github.io/master/images/649px-Bloom_filter.svg.png" alt=""></a>
+	<figcaption>The false positive probability p as a function of number of elements n in the filter and the filter size m. An optimal number of hash functions k= (m/n) \ln 2 has been assumed.</figcaption>
+</figure>
+
 * Add：要添加一个元素，使用K个hash函数将item Hash后Bloom Filter中的K个bit位置为1
 * Query：要查询一个元素，使用K个hash函数将item Hash后的K个bit位与Bloom Filter中的相应位置比较，如果全部为1，则该item出现过，如果有任何一位不为1则该item没有出现过。
 * Remove：不允许删除元素。因为要remove的item的K个hash位可能也被其他item的位所共用，所以不允许删除元素。
@@ -60,4 +65,69 @@ $$ \left(1- \left(1- \frac{1}{m}\right)^{nk}\right)^k = \left(1- e^{\frac{nk}{-m
 
 假设我们有***一百万***条数据需要判重，如果需要错误率低于1%，那么我们可以算出来。需要不到一千万bit和7个hash函数。也就是不到***10MB***的空间就可以完成。如果要求0.1%的错误率也只需要***14M***空间和10个hash函数。这些hash函数是互相不相关的可以并行的运算，更是提高了速度。
 
+###实现
+
+粘一段很简单的实现：参考<a href="http://www.cnblogs.com/hitwtx/archive/2011/08/24/2152180.html">这里</a>
+
+{% highlight java %}
+
+import java.util.BitSet;
+public class  SimpleBloomFilter {
+     private static final  int  DEFAULT_SIZE  =2 << 24 ;
+     private static final  int [] seeds =new  int []{5,7, 11 , 13 , 31 , 37 , 61};
+     private  BitSet bits= new  BitSet(DEFAULT_SIZE);
+     private  SimpleHash[]  func=new  SimpleHash[seeds.length];   
+     public  SimpleBloomFilter() {
+         for( int  i= 0 ; i< seeds.length; i ++ ) {
+            func[i]=new  SimpleHash(DEFAULT_SIZE, seeds[i]);
+        }
+    }
+     public void  add(String value) {
+         for(SimpleHash f : func) {
+            bits.set(f.hash(value),  true );
+        }
+    }
+     public boolean  contains(String value) {
+         if(value ==null ) {
+             return false ;
+        }
+         boolean  ret  = true ;
+         for(SimpleHash f : func) {
+            ret=ret&& bits.get(f.hash(value));
+        }
+         return  ret;
+    }
+     
+     //内部类，simpleHash
+     public static class SimpleHash {
+         private int  cap;
+         private int  seed;
+         public  SimpleHash( int cap, int seed) {
+             this.cap= cap;
+             this.seed =seed;
+        }
+         public int hash(String value) {
+             int  result=0 ;
+             int  len= value.length();
+             for  (int i= 0 ; i< len; i ++ ) {
+                result =seed* result + value.charAt(i);
+            }
+             return (cap - 1 ) & result;
+        }
+    }
+     
+     public static void  main(String[] args) {
+         String value  = "stone2083@yahoo.cn" ;
+         SimpleBloomFilter filter=new  SimpleBloomFilter();
+         System.out.println(filter.contains(value));
+         filter.add(value);
+         System.out.println(filter.contains(value));
+     }
+}
+
+{% endhighlight %}
+
+<div markdown="0"><a href="http://en.wikipedia.org/wiki/Bloom_filter" class="btn btn-info">Wiki --Bloom Filter</a></div>
+
+<div markdown="0"><a href="https://github.com/MagnusS/Java-BloomFilter/blob/master/src/com/skjegstad/utils/BloomFilter.java" class="btn btn-info">Github --Bloom Filter</a></div>
 
