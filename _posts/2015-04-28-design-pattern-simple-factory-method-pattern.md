@@ -23,15 +23,71 @@ image:
 
 ###模式参与者
 
-* 工厂(Factory): 接受客户请求，按照请求返回给客户所要求的对象(上例中的：哆啦A梦)
 * 抽象产品(Abstract Product): 是工厂模式所创建对象的父类或是共同拥有的接口。可是抽象类或接口。(上例中的：复仇系列产品)
 * 具体产品(Concrete Product): 工厂模式所创建的对象都是这个角色的实例。(上例中的：“少爷保镖”，“复仇机器人”)
+* 工厂(Factory): 接受客户请求，按照请求返回给客户所要求的对象(上例中的：哆啦A梦)
 
 ###UML图
 
 <figure>
-	<a href="https://raw.githubusercontent.com/lonelyswan/lonelyswan.github.io/master/images/simple-factory-method.jpeg"><img src="https://raw.githubusercontent.com/lonelyswan/lonelyswan.github.io/master/images/simple-factory-method.jpeg" alt=""></a>
-	<figcaption>UML</figcaption>
+	<a href="https://raw.githubusercontent.com/lonelyswan/lonelyswan.github.io/master/images/simple-factory-method.jpg"><img src="https://raw.githubusercontent.com/lonelyswan/lonelyswan.github.io/master/images/simple-factory-method.jpg" alt="center"></a>
 </figure>
+
+###模式实现
+
+首先是抽象产品
+{% highlight java %}
+//Abstract Product:
+public abstract class RevengeProduct{
+	String name;
+	String discribe;
+	public abstract void revenge();
+}
+{% endhighlight %}
+
+
+然后是具体产品
+{% highlight java %}
+//Concrete Product A:
+public class BodyGuard extends RevengeProduct{
+	String name;
+	String discribe;
+	public void revenge(){
+	    dorevenge();
+	}
+}
+//Concrete Product B:
+public class RevengeRobot extends RevengeProduct{
+	String name;
+	String discribe;
+	public void revenge(){
+	    dorevenge();
+	}
+}
+{% endhighlight %}
+
+
+然后是工厂
+{% highlight java %}
+//Factory
+public Class Factory{
+	pulic static RevengeProduct create(String command){
+		if(command.equals(bodyGuard))
+			return new BodyGuard();
+		if(command.equals(revengeRobot))
+			return new RevengeRobot();
+	}	
+}
+{% endhighlight %}
+
+###模式优缺点
+优点：工厂类含有必要的判断逻辑，可以决定在什么时候创建哪一个产品类的实例，客户端可以免除直接创建产品对象的责任，而仅仅"消费"产品。简单工厂模式通过这种做法实现了对责任的分割。
+
+缺点：
+
+1.当产品有复杂的多层等级结构时，工厂类只有自己，以不变应万变，就是模式的缺点。因为工厂类集中了所有产品创建逻辑，一旦不能正常工作，整个系统都要受到影响。
+
+2.系统扩展困难，一旦添加新产品就不得不修改工厂逻辑，有可能造成工厂逻辑过于复杂,违背了"开放--封闭"原则(OCP)。另外，简单工厂模式通常使用静态工厂方法，这使得无法由子类继承，造成工厂角色无法形成基于继承的等级结构。
+
 
 
