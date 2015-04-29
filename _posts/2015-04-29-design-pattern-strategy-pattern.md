@@ -35,3 +35,83 @@ image:
 <figure>
 	<a href="https://raw.githubusercontent.com/lonelyswan/lonelyswan.github.io/master/images/strategy-pattern.jpg"><img src="https://raw.githubusercontent.com/lonelyswan/lonelyswan.github.io/master/images/strategy-pattern.jpg" alt="center"></a>
 </figure>
+
+###模式实现
+
+Strategy要实现的两个interface
+{% highlight java %}
+//两个interface:
+public interface WeightInterface{
+	public Weight getWeight();
+}
+public interface ShapeInterface{
+	public Shape getShape();
+}
+{% endhighlight %}
+
+策略(Strategy)
+{% highlight java %}
+//Strategy:
+public abstract class StrategyDiamond implement WeightInterface,ShapeInterface{
+	public Weight getWeight(){}
+	public Shape getShape(){}
+}
+{% endhighlight %}
+
+具体策略(Concrete Strategy)
+{% highlight java %}
+//Concrete Strategy:
+public class DiamondA extends StrategyDiamond{
+	Weight weight;
+	Shape shape;
+	public Weight getWeight(){
+		return this.weight;
+	}
+	public Shape getShape(){
+		return this.shape;
+	}
+}
+public class DiamondB extends StrategyDiamond{
+	Weight weight;
+	Shape shape;
+	public Weight getWeight(){
+		return this.weight;
+	}
+	public Shape getShape(){
+		return this.shape;
+	}
+}
+public class DiamondC extends StrategyDiamond{
+	Weight weight;
+	Shape shape;
+	public Weight getWeight(){
+		return this.weight;
+	}
+	public Shape getShape(){
+		return this.shape;
+	}
+}
+{% endhighlight %}
+
+上下文，持有Strategy的对象(Context)
+{% highlight java %}
+public class Context{
+	private StrategyDiamond diamond;
+
+	public Context(StrategyDiamond req){
+		this.diamond = req;
+	}
+
+	public Weight getWeight(){
+		return this.diamond.getWeight();
+	} 
+	public Shape getShape(){
+		return this.diamond.getShape();
+	} 
+}
+{% endhighlight %}
+
+###模式优缺点
+
+###与简单工厂模式的区别
+
