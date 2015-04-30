@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 设计模式--简单工厂模式
-category: design pattern
+category: design-pattern
 description: "简单工厂模式又叫 static factory method，是工厂模式家族中最简单的实现，但是这种最简单的实现往往却很实用"
 modified: 2015-04-28
 tags: [design pattern,fatcory method]
