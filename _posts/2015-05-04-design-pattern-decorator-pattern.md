@@ -42,7 +42,7 @@ image:
 ###UML图
 
 <figure>
-	<a href="https://raw.githubusercontent.com/lonelyswan/lonelyswan.github.io/master/images/decorator-pattern.jpg"><img src="https://raw.githubusercontent.com/lonelyswan/lonelyswan.github.io/master/images/strategy-pattern.jpg" alt="center"></a>
+	<a href="https://raw.githubusercontent.com/lonelyswan/lonelyswan.github.io/master/images/decorator-pattern.jpg"><img src="https://raw.githubusercontent.com/lonelyswan/lonelyswan.github.io/master/images/decorator-pattern.jpg" alt="center"></a>
 </figure>
 
 ###模式实现
