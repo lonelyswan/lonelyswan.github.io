@@ -47,3 +47,55 @@ image:
 
 ###模式实现
 
+首先实现Component接口，作为抽象出的具体构建，以及用于Decorator实现
+{% highlight java %}
+public interface Component{
+	public void show();
+}
+{% endhighlight %}
+
+具体的构建实现Component接口
+{% highlight java %}
+public class Nobi implement Component{
+	private Age age;
+	private Height height;
+	public setAge(Age age){
+		this.age =age;
+	}
+	public setHeight(Height height){
+		this.height =hright;
+	}
+	@Override
+	public void show(){
+		do something;
+	}
+}
+{% endhighlight %}
+
+再实现Decorator抽象类
+{% highlight java %}
+public abstract class Decorator implement Component{
+	private Component component;
+	public Decorator(Component component){
+		this.component = component;
+	}
+	@Override
+	public void show(){
+		do something;
+	}
+}
+{% endhighlight %}
+
+实现几个具体装饰类
+{% highlight java %}
+public class Tshirt extends Decorator{
+	private Component component;
+	public Tshirt(Component component){
+		this.component = component;
+	}
+	@Override
+	public void show(){
+		do something;
+	}
+}
+{% endhighlight %}
