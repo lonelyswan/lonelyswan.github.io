@@ -65,7 +65,6 @@ public class Nobi implement Component{
 	public setHeight(Height height){
 		this.height =hright;
 	}
-	@Override
 	public void show(){
 		do something;
 	}
@@ -81,7 +80,7 @@ public abstract class Decorator implement Component{
 	}
 	@Override
 	public void show(){
-		do something;
+		component.show();
 	}
 }
 {% endhighlight %}
@@ -93,9 +92,26 @@ public class Tshirt extends Decorator{
 	public Tshirt(Component component){
 		this.component = component;
 	}
-	@Override
-	public void show(){
-		do something;
+	public void showTshirt(){
+		show Tshirt;
+	}
+}
+public class Shorts extends Decorator{
+	private Component component;
+	public Shorts(Component component){
+		this.component = component;
+	}
+	public void showShorts(){
+		show Shorts;
+	}
+}
+public class Shoes extends Decorator{
+	private Component component;
+	public Shoes(Component component){
+		this.component = component;
+	}
+	public void showShoes(){
+		show Shoes;
 	}
 }
 {% endhighlight %}
